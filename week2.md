@@ -187,3 +187,116 @@ Have to implement on your own for homework, but I will tell you that Exception (
 public Exception(String errorMessage) {...}
 public Exception(String errorMessage, Throwable err) {...}
 ```
+
+\newpage
+
+# October 4
+
+
+## Brief intro to runtime
+
+Example: searching in linked list
+
+O(n)
+
+Example: travelling salesman
+
+O(n!)
+
+Example: matrix multiplication
+
+O(n^3)
+
+Bonus, show most recent work on improving this bound: divide and conquer, hashing methods
+
+First improvement: divide and conquer, 1969. Algorithm still used today for matrices with n > 500
+
+1990: O(n^2.3755)
+2024: O(n^2.371552)
+
+*galactic algorithms*
+
+## Hash Tables
+
+- Sets: collections of unique objects, with operations `add`, `remove`, and `contain`.
+- Let's consider integers to start.
+- If implemented in regular array, storing new elements in the next available index, add is O(1), contains is O(n), remove O(n)
+- In sorted order? Add is O(N), contains is O(log N), remove O(N)
+- Crazy idea: store integer i at index i
+  - very efficient if we have unlimited memory! and only positive numbers!
+
+- **hash (def.):** to map a large domain of values to a smaller fixed domain
+  - want to map to integer indices
+  - hash table: an array that stores elements via hashing
+  - hash function: maps values to indices
+  - hash code: the output of the hash function for a given value
+ 
+Reminder:
+  - for a function f: X -> Y, we define
+  - injective function (one-to-one): maps distinct elements of its domain to distinct elements in codomain
+    - x1 != x2 -> f(x1) != f(x2)
+  - surjective function (onto): for every element y in the codomain, there is at least one element in the domain such that f(x) = y.
+    - (not wasting any memory)
+  - bijective: one-to-one correspondence (invertible), relation between two sets
+
+We want: as small of a codomain as possible, but still retain the ability to distinguish f(x1) and f(x2).
+
+How to fix **collisions**: when hash function maps two values to same index!?!?
+
+```java
+private int hash(int value) {
+    return Math.abs(value) % hashtable.length;
+}
+```
+
+- **Probing**: store exact value in array, resolve collision by moving to another index
+  - linear probing: move to next available index (wrapping if needed).
+  - quadratic probing: move increasingly far away (+1, +4, +9)
+  - how to search?
+    - use hash function to find index of value; if f(x) = 0, we know it's not there
+    - if we find the value, we know it is there
+    - if we find a *different* value, this space has already been filled by probing. Perform probe until we either find the value or find 0.
+  - how to remove?
+    - if we just set to zero, might break a probe sequence
+      - if time: example, ten element array, add 54, then 14, then remove 54
+      - use special value to signify "removed", skip this during "add" and "contains"
+  - problem: full table! how to solve?
+
+- **Re-hashing**: moving data to larger array when our hash table is too full.
+  - can't simply copy in-place to larger array; why not?
+  - often use prime numbers as table size to reduce collisions
+
+- **Separate chaining:** Solve collisions by storing a list at each index
+  - trade multiple probes for traversing lists
+  - impossible to "run out" of indices
+  - have to check for duplicates in list before adding, and implement proper linked-list access
+
+How to handle objects?
+
+- all objects have built in `hashCode()` method (based on memory address)
+- have to be careful with generics
+
+```java
+public class HashSet<E> implements Set<E> {
+  private Node[] elements;
+
+  public HashSet() {
+    elements = (Node[]) new HashSet.Node[10];
+
+  private class Node {
+    public E data;
+    public Node next;
+  }
+  
+  private int hash(E e) {
+    return Math.abs(e.hashCode()) % elements.length;
+  
+  ...
+}
+```
+
+## Hash Map
+
+- Similar to hash set, but stores key/value pairs instead of just values
+- always hash keys
+- `add` method is now `put`: if given key already exists in table, replace value
