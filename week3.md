@@ -86,4 +86,71 @@ Runtime?
 (n-1) + (n-2) + ... + 1 = \sum_{i=1}^{n-1} i = (n-1)\frac{(n-1) + 1}{2}
 \end{equation}
 
+\newpage
 
+# 9 October
+
+## Sorting
+
+### Insertion Sort
+
+- very similar to selection sort
+- iterate over array, building sorted array at the beginning
+- compare unsorted values to largest value in sorted array
+  - will be adjacent as list/array is built
+  - starting condition: assume first element is sorted
+- compare a[i] to next element a[i+1]
+  - if a[i+1] < a[i], **insert** a[i+1] at the correct location in sorted list
+  - if a[i+1]>a[i], move to next element a[i+2] (done if we find end of array)
+
+Worst case run-time? Reverse sorted array
+
+\begin{equation}
+(n-1) + (n-2) + ... + 1 = \sum_{i=1}^{n-1} i = (n-1)\frac{(n-1) + 1}{2}
+\end{equation}
+
+- Does better on "nearly sorted" arrays: If each element is at most k places away from its sorted position, we get O(kn)
+- This is called an *adaptive sorting algorithm*: performance increases with "sortedness" of array
+- Other sorting algorithm properties:
+  - *stability*: leaving order of equal elements unchanged
+  - *in place*: only requires O(1) additional memory
+  - *online*: can sort a list as it recieves it
+
+Takeaway:
+- Insertion sort scans *backward* from current key
+- Selection sort scans *forward*
+- Both build sorted array "as they go," selection sort is guaranteed to sort the k smallest elements after k passes, while insertion sort sorts input in-order
+
+Which one would you choose to adapt for an *online* sorting scenario?
+
+### Bubble Sort
+
+- first described on paper in 1956!
+- Donald Knuth says we shouldn't teach you this!
+
+psuedocode for array `a`:
+
+```
+n = a.length
+swapped = true
+
+while swapped:
+    swapped = false
+    for(int i = 1; i < n; i++):
+        if a[i-1] > a[i]: // wrong order
+            swap(a[i-1], a[i])
+            swapped = True
+    
+return a
+```
+
+- worst case: O(n**2). example: reverse sorted array as input
+- not used in practice, except in computational geometry / graphics for situation where you have *nearly* sorted arrays
+- highly parallelizable
+
+### Visualizer for Selection, Insertion, Bubble Sort
+
+- https://visualgo.net/en/sorting
+- plus Obama video
+
+### Homework questions?
