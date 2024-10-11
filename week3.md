@@ -154,3 +154,23 @@ return a
 - plus Obama video
 
 ### Homework questions?
+
+\newpage
+
+# 11 October
+
+## Housekeeping
+
+- Recall labs are due before your next lab session
+- Half of points for labs are for attendance
+- I will be out of town on Monday October 28 and Wednesday October 30.
+  - We will have an exciting guest lecturer!
+  - DARS conference: https://dars2024.engineering.cornell.edu/
+- Midterm will be week of Nov 4-8, **in lab**
+  - Friday Nov 1: review day in lecture
+  - In-class worksheets are also to help review for midterm; will do on most Fridays from here on out
+
+## In-Class Worksheet
+
+- work independently
+- discuss answers
