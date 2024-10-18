@@ -214,6 +214,10 @@ index corresponding to each key
 
 Complexity: O(n+k)
 
+\newpage
+
+# 18 October
+
 ## Radix Sort
 
 - radix = "base" (as in base-10)
@@ -226,3 +230,5 @@ least significant
 impractical because of need for dynamic memory allocation!
 
 *watch more interactive viz*
+
+*do worksheet*
