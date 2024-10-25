@@ -101,3 +101,58 @@ $\to k = \log_2 (N+1) - 1$
 This is the exact relationship: for estimating algorithm runtime, it suffices to
 remember that $k \approx \mathcal{O}(\log_2(N))$.
 
+\newpage
+
+# October 25
+
+## Housekeeping
+
+- Midterm info:
+  - In-class review next Friday November 1
+  - Midterm held during lab time
+  - Can use your own or the lab computer
+  - Exam accessed through Canvas
+  - Small coding assignment + multiple choice and short answer (typed)
+  - DAC tests can be scheduled any time that week
+      - I still have yet to confirm that DAC has Linux computers with Java
+  - You may bring ***one single-sided sheet** of notes (typed or hand-written)
+      - Can also look things up in Java API javadocs, and I will link to the [java.base docs](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/module-summary.html) at the top of the exam
+      - Any other resources accessed during exam (StackOverflow, Chat-GPT, etc) will be an immediate zero
+  - Exam will cover all content seen in class up to and including today (not including guest lecture next week).
+
+- HW3 due today, HW4 released today and due next Friday
+- No homework during week of exam (or labs), but we will have lecture
+
+## Recap BSTs, traversals
+
+- Binary Search Trees
+
+- **in-order**:
+  1. recursively traverse Left subtree
+  2. process current node
+  3. recursively traverse Right subtree
+  - For BSTs, in-order retrieves data in ascending sorted order
+    - How to get keys in *descending* order?
+- **pre-order**:
+  1. process current node
+  2. recursively traverse Left subtree
+  3. recursively traverse Right subtree
+  - Pre-order returns nodes in *topologically sorted* order: for every directed
+  edge from *u* to *v*, we will return *u* before *v*
+  - Another way of saying, pre-order traversals always visit *roots* before
+  *leaves*
+  - Also will return nodes in order needed to make a copy of tree!
+- **post-order**:
+    1. recursively traverse Left subtree
+    2. recursively traverse Right subtree
+    3. process current node
+    - Useful for binary *expression* trees: can handle binary and unary operators
+    - Example: A + B * C
+    - "Reverse Polish Notation" and history of calculators
+    - Explore *leaves* before *nodes*
+      - Example: tree is computing partial cumulative sums of leaves, or average scores of different populations
+
+
+## Worksheet time!!
+
+- See Worksheet 3
