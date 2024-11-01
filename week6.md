@@ -1,3 +1,11 @@
+# 28 and 30 October
+
+See Diego's slides here:
+[http://slides.diegollanes.com/](http://slides.diegollanes.com/)
+
+Tree rotations and AVL trees will not be on the midterm, but are fair game for
+the final exam.
+
 # 1 November - Midterm Review
 
 ## Logistics
