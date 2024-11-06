@@ -84,3 +84,50 @@ aapplications
 - ADT vs data structure?
   - ADT is more formal, explicitly a mathematical model, defined by semantics: in, out, and invariants / guarantees
   - data structure refers to a particular implementation
+
+# 6 November
+
+## Intro to Graphs
+
+Vocab / structure:
+
+- network
+- nodes / vertices / entities
+- edges (links, relations)
+- directed vs undirected
+- node data
+- edge weights
+- vertex degree
+  - k-regular graph all vertices have degree k
+  - in-degree, out-degree
+- order of graph is number of vertices
+- size of graph is number of edges
+- subgraphs
+- tree is a directed acyclic graph (DAG)
+- path in graph: sequence of vertices with pairwise edge connections
+- cycle: path that ends at originating node
+
+Why graphs?
+
+- Highly expressive encoding, maps to many problem domains
+- independent set problem: pairwise nonadjacent vertices
+- epidemiology, social network
+- connectivity of graphs:
+  - strong connectivity: (u,v) path for each pair u, v of vertices
+  - k-connectivity: can deleting k edges create two disconnected components?
+- Eulerian circuits: can we make a loop in graph while crossing each bridge only once?
+  - traffic planning, bus network routing
+- Neural networks
+  - Graph neural networks: input is graph (instead of vector), predict properties of entire graph
+  - Human brain: 100 billion neurons, 100 trillion synaptic connections (approx 1k-5k connections per neuron)
+  - ChatGPT: 176 billion neurons
+    - 85,000 nodes in layer connected to all 85,000 nodes in next layer, quadrillion connections? $10**16$
+- Semantics of visual scenes
+- Isomorphisms, graph symmetry: "am I seeing the same arrangement of entities as I saw before"
+- Lots of difficult but beautiful problems
+
+Representing graphs:
+
+- drawings, planar graphs, embeddings
+- connections to automata, autopilot
+- adjacency list, adjacency matrix
