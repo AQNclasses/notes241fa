@@ -12,7 +12,6 @@ Western Washington University
 ## Announcements
 
 - Mid-term is underway!
-- If in DAC testing center, message me your scheduled time
 - HW 4 due this Friday
 - Delayed office hours today
 
@@ -85,6 +84,8 @@ aapplications
   - ADT is more formal, explicitly a mathematical model, defined by semantics: in, out, and invariants / guarantees
   - data structure refers to a particular implementation
 
+\newpage
+
 # 6 November
 
 ## Intro to Graphs
@@ -131,3 +132,28 @@ Representing graphs:
 - drawings, planar graphs, embeddings
 - connections to automata, autopilot
 - adjacency list, adjacency matrix
+
+
+\newpage
+
+# 8 November
+
+- Well done on mid-term!
+  - Still have one or two people left to take exam, so try to minimize discussion until we go over exam in class next Wednesday
+- No class Monday: also means no labs next week, no office hours Monday
+- Project will also be introduced on Wednesday, due last week of classes
+- Will have homework released today, due next Friday
+  - HW is on a data structure related to trees / lists
+
+# A few notes on heaps in Java
+
+- Java heap interactions are implemented by the Priority Queue ADT
+- Remove min/max element: `poll`
+  - `poll` vs `pop`: Stacks will throw exception if you try to pop, but `poll` returns null if heap / queue is empty
+- Remove min/max element and throw exception if empty: `remove`
+- View min/max element: `peek`
+- View min/max element and throw exception if empty: `element`
+- Add element: `offer` or `add` (boolean)
+  - Equivalent for unbounded Priority Queues (default in Java)
+
+# Worksheet time
