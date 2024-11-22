@@ -128,3 +128,57 @@ DFS(G, n):
 - Write down order if we print node labels of example graph (on board)
 - Note that depending on when we print labels, we can get a pre-order (nodes in
   order they were first visited) or post-order (order they were last visited)
+
+
+# 20 November
+
+See slides
+
+\newpage
+
+# 22 November
+
+## Full Dijkstra Algorithm
+
+- Recall this algorithm will get us the minimum spanning tree(s) as well as the
+shortest paths from one node to all other nodes.
+- Assumption: no negative edge weights
+  - Ex: energy-aware travel graph with regenerative braking
+
+### Initialization
+
+- Create a set of all *unvisited* nodes. Call this set $U$.
+- Assign a *distance* $dist$ to each node in the graph.
+  - Assign $dist=0$ for the start node.
+  - Assign $dist=\infty$ for all other nodes.
+- set the start node to the **current node**, $c$, and remove it from $U$.
+
+### Iteration
+
+While $U$ is not empty:
+
+- for (n : neighbors(current node))
+  - let e(c, n) be the edge weight between c and n
+  - update $dist(n)$: set to $min (dist(n), dist(c) + e(c,n))$
+     - case where $dist(n)$ is smaller: path to $n$ through $c$ is not the shortest
+     - case where $dist(c) + e(c,n)$ is smaller: shortest path to n found so far
+- after processing all neighbors, mark $c$ as visited (remove from $U$)
+- set current node $c$ to node in $U$ with minimum $dist$
+
+### Run time?
+
+- opportunity for optimization: min-heap, sorted on $dist$
+- have to update min-heap every time we update $dist$
+- multiple solutions, most performant (runtime) to add multiple copies of nodes to $U$ and maintain separate set of unvisited nodes
+
+### Extracting path
+
+- build shortest-path "tree" while computing
+  - will not be tree if there are multiple same-cost shortest paths to a node
+- can explicitly build tree:
+  - add $c$ to tree when we remove from $U$
+  - connect to neighbors already in tree such that d(n) + e(c,n) = d(c)
+- can also make a pointer array $prev$
+  - update $prev(n) = c$ every time we update $d(n)$
+
+### Example on board
