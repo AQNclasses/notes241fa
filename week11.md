@@ -37,7 +37,7 @@ header-includes:
     - `remove(k, new()) = new()`
   - Can implement with hash tables, self-balancing binary search trees
 - Self-Balancing Binary Trees
-  - pre-condition and post-condition of put and delete are that balance factors of all nodes are +1 / 0 / 1
+  - pre-condition and post-condition of put and delete are that balance factors of all nodes are +1 / 0 / -1
 
 Why?
 
